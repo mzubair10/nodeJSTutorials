@@ -68,6 +68,9 @@ const buildLPSMatrix = function (pattern) {
 };
 
 const isStringMatch = function (originalString, patternToBeVerified) {
+  if (originalString.length == 0 || patternToBeVerified.length == 0){
+    return false;
+  }
   const lpsMatrix = buildLPSMatrix(patternToBeVerified);
   const dummyObject = { 0: 0 };
   lpsMatrix.unshift(dummyObject);
@@ -76,6 +79,9 @@ const isStringMatch = function (originalString, patternToBeVerified) {
     const [key, _] = Object.entries(lpsMatrix[counter + 1])[0];
     if (originalString[stringIter] == key) {
       counter += 1;
+      if (counter+1 == lpsMatrix.length) {
+        return true;
+      }
     } else {
       while (counter != 0) {
         const [_, nextCounterValue] = Object.entries(lpsMatrix[counter])[0];
@@ -94,4 +100,4 @@ const isStringMatch = function (originalString, patternToBeVerified) {
   return false;
 };
 
-console.log(isStringMatch("ababcabcabababd", "ababd"));
+console.log(isStringMatch("ababcabcababab", "abc"));
