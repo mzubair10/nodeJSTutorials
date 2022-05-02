@@ -1,0 +1,15 @@
+{
+  "name": "algoExpert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "3numberSum.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6"
+  }
+}
